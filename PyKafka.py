@@ -22,8 +22,8 @@ with open( 'test.json' , 'r') as f:
     
     data = json.load( f )
 
-              
-with topic.get_producer( delivery_reports = True) as producer:
+          
+with topic.get_producer( delivery_reports = True ) as producer:
     
     count = 0 
     
@@ -31,15 +31,17 @@ with topic.get_producer( delivery_reports = True) as producer:
         
         for i, j in data.items():
             
-            producer.produce(i.encode('utf-8') ) 
+            i = i.encode('utf-8')
+                        
+            producer.produce(i) 
             
             j = bytes(j)
             
-            producer.produce(j )
+            producer.produce(j)
         
             time.sleep( 5 )
         
-        count += 1 
+            count += 1 
         
         if count > 1:
             producer.produce( b'Finished')
