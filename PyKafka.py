@@ -37,7 +37,7 @@ with topic.get_producer( delivery_reports = True) as producer:
             
             producer.produce(j )
         
-        #time.sleep( 5 )
+            time.sleep( 5 )
         
         count += 1 
         
